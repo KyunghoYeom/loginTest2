@@ -1,0 +1,41 @@
+jwt:
+  secret-key: Z29nby10bS1zZXJ2ZXItZGxyamVvYW9yb3JodG9kZ290c3Atam9vbmdhbmduaW0teWVvbHNpbWhpaGFsZ2VveW8K
+#Secret 값 같은 경우는 외부에 노출되지 않게 Vault 같은 보안 저장소에 넣을 수도 있습니다.
+oauth:
+  kakao:
+    client-id: f9763b29dd42ed70e47d57676be9b786
+    url:
+      auth: https://kauth.kakao.com
+      api: https://kapi.kakao.com
+  apple:
+    url:
+      auth: https://appleid.apple.com
+    client-id: YOUR_APPLE_CLIENT_ID
+    key-id: YOUR_APPLE_KEY_ID
+    team-id: YOUR_APPLE_TEAM_ID
+    private-key: YOUR_APPLE_PRIVATE_KEY_BASE64
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/loginTest
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        #        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 100
+        #이거 적는게 제일 무난한 방법(클래스나 컬랙션 위에 각각 적기보다)
+
+    #open-in-view: false
+    #false로 되어있으면 트랜젝션 내에서 지연로딩 처리해주어야한다(respository나 service단에서)
+    #별도의 패키지를 두어 Service단의 역할과 화면에서의 처리 Service 로직을 분리하는 것이 유지보수에 좋다
+
+
+logging.level:
+  org.hibernate.SQL: debug
