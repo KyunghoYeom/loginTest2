@@ -20,6 +20,12 @@ public class MemberRepository {
                 .setParameter("id", id)
                 .getSingleResult();
     }
+    public Member findByNickname(String nickname){
+        return em.createQuery("select m from Member m where m.nickname =:nickname", Member.class)
+                .setParameter("nickname", nickname)
+                .getSingleResult();
+
+    }
 
 
 
